@@ -23,7 +23,7 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-##Projektidea
+## Projektidea
 - Display statisticts about the best NHL-players in a list
 - GET detailed statistics about a specific player
 - POST new player
