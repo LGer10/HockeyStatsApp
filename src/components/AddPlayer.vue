@@ -1,53 +1,58 @@
 <template>
-    <form id="add">
-      <input type="text" v-model="name" name="name" placeholder="player name" />
-      <br>
-      <input type="number" v-model="age" name="age" placeholder="player age" />
-      <br>
-      <input type="text" v-model="imgurl" name="imgurl" placeholder="player image" />
-      <br>
-      <input type="number" v-model="type" name="goals" placeholder="player goals" />
-      <br>
-      <input type="number" v-model="type" name="assists" placeholder="player assists" />
-      <br>
-      <input type="number" v-model="type" name="points" placeholder="player points" />
-      <br>
-      <button v-on:click=addPlayer() type="button">Add Player</button>
-    </form>
+  <form>
+    <h2>Add other Player</h2>
+    <hr>
+    <b-form-input :state="null" 
+    type="text" 
+    v-model="name" 
+    name="name" 
+    placeholder="player name" />
+    <br />
+    <b-form-input :state="null"
+      type="text"
+      v-model="imgurl"
+      name="imgurl"
+      placeholder="player image"
+    />
+    <br />
+    <b-form-input :state="null" 
+      type="number"
+      v-model="goals"
+      name="goals"
+      placeholder="player goals"
+    />
+    <br />
+    <b-form-input :state="null"
+      type="number"
+      v-model="assists"
+      name="assists"
+      placeholder="player assists"
+    />
+    <br />
+   
+    <b-button variant="primary" v-on:click="addPlayer()" type="button">Add Player</b-button>
+  </form>
 </template>
 
 <script>
 export default {
-    name: 'AddPlayer',
-    components: {},
-    data() {
-        return {
-            name: '',
-            age: 0,
-            imgurl: '',
-            assists: 0,
-            goals: 0,
-            points: 0
-        }
+  name: "AddPlayer",
+  components: {},
+  data() {
+    return {
+      
+    };
+  },
+  methods: {
+    addPlayer() {
+      const newPlayer = {
+        name: this.name,
+        imgurl: this.imgurl,
+        goals: this.goals,
+        assists: this.assists,
+      };
+      this.$emit("add-player", newPlayer);
     },
-    methods: {
-        addPlayer() {
-            const newPlayer = {
-                name: this.name,
-                age: this.age,
-                imgurl: this.imgurl,
-                goals: this.goals,
-                assists: this.assists,
-                points: this.points
-            }
-            this.$emit('add-player', newPlayer)
-        }
-    }
-
-}
+  },
+};
 </script>
-
-<style>
-
-
-</style>
